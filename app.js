@@ -27,6 +27,17 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.use(function (req, res, next) {
+
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  
+  // Pass to next layer of middleware
+  next();
+});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
